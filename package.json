@@ -13,6 +13,7 @@
     "react-dom": "^17.0.2",
     "react_ujs": "^2.6.2",
     "turbolinks": "^5.2.0",
+    "use-action-cable": "^6.0.8",
     "webpack": "4.46.0",
     "webpack-cli": "3.3.12"
   },
