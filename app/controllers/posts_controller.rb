@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  #creates new post, broadcast message over web sockets then redirects back to index page
   def create 
     Post.create(post_params)
     ActionCable.server.broadcast(
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  #increment
   def like 
     Post.find_by(id: params[:post_id]).increment!(:likes_count)
     ActionCable.server.broadcast(
@@ -22,6 +24,7 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  #increment
   def repost 
     Post.find_by(id: params[:post_id]).increment!(:repost_count)
     ActionCable.server.broadcast(
